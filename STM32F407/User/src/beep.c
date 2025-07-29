@@ -1,7 +1,5 @@
 #include "beep.h"
 
-
-
 //BEEP/PE0
 void  Beep_Init(void)
 {
