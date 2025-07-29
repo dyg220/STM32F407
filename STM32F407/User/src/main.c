@@ -6,13 +6,13 @@ int main(void)
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
-	BEEP_ON;
-	delay_ms(300);
-	BEEP_OFF;
+	//BEEP_ON;
+	//delay_ms(300);
+	//BEEP_OFF;
 	while (1)
 	{
 		//LED_Water();
-		if (!Fire_DETECT)
+		if (Fire_YES)
 		{
 			LED1_ON;
 		}

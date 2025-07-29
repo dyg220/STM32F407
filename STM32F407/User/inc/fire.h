@@ -4,8 +4,8 @@
 
 
 //检测到火焰时为低电平
-#define Fire_DETECT (GPIOA->IDR&(0x01<<4)?1:0)
-
+#define Fire_YES	!(GPIOA->IDR&(0x01<<4))
+#define Fire_NO		(GPIOA->IDR&(0x01<<4))
 void Fire_Init(void);
 
 #endif
