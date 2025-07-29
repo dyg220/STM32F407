@@ -5,18 +5,21 @@ int main(void)
 {
 	LED_Init();
 	Beep_Init();
-	//BEEP_ON;
-	//delay_ms(300);
-	//BEEP_OFF;
 	Fire_Init();
+	BEEP_ON;
+	delay_ms(300);
+	BEEP_OFF;
 	while (1)
 	{
-		LED_Water();
-		if (Fire_DETECT)
+		//LED_Water();
+		if (!Fire_DETECT)
 		{
-			BEEP_ON;
+			LED1_ON;
 		}
-
+		else
+		{
+			LED1_OFF;
+		}
 	}
 	return 0;
 }
