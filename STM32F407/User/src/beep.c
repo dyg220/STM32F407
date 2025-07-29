@@ -12,4 +12,5 @@ void  Beep_Init(void)
 	GPIOE->OSPEEDR &= ~(3 << 0); //2Mhz
 	GPIOE->PUPDR &= ~(3 << 0);	 //无上下拉
 
+	BEEP_OFF;
 }
