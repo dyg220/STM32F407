@@ -637,6 +637,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\src\beep.c</FilePath>
             </File>
+            <File>
+              <FileName>fire.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\fire.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
