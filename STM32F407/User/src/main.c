@@ -4,20 +4,12 @@
 int main(void)
 {
 	LED_Init();
+	Beep_Init();
+	BEEP_ON;
 	while (1)
 	{
-		for (u8 i = 0; i < 4; i++)
-		{
-			LED_ON(i + 1);
-			delay_ms(500);
-		}
-
-		for (u8 i = 0; i < 4; i++)
-		{
-			LED_OFF(i + 1);
-			delay_ms(500);
-		}
-
+		//LED_Water();
+	
 	}
 	return 0;
 }

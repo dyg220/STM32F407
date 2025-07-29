@@ -30,6 +30,24 @@ void LED_ALLON(void)
 	LED4_ON;
 }
 
+
+//Á÷Ë®µÆ
+void LED_Water(void)
+{
+	for (u8 i = 0; i < 4; i++)
+	{
+		LED_ON(i + 1);
+		delay_ms(500);
+	}
+
+	for (u8 i = 0; i < 4; i++)
+	{
+		LED_OFF(i + 1);
+		delay_ms(500);
+	}
+
+}
+
 void LED_ON(u8 num)
 {
 	switch (num)

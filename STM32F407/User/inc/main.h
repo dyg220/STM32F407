@@ -3,7 +3,7 @@
 
 #include "led.h"
 #include "delay.h"
-
+#include "beep.h"
 
 //#include <string.h>
 //#include <stdlib.h>
