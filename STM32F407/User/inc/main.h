@@ -5,6 +5,7 @@
 #include "delay.h"
 #include "beep.h"
 #include "fire.h"
+#include "key.h"
 
 //#include <string.h>
 //#include <stdlib.h>

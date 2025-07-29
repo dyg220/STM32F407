@@ -141,6 +141,7 @@
     <ClInclude Include="User\inc\beep.h" />
     <ClInclude Include="User\inc\delay.h" />
     <ClInclude Include="User\inc\fire.h" />
+    <ClInclude Include="User\inc\key.h" />
     <ClInclude Include="User\inc\led.h" />
     <ClInclude Include="User\inc\main.h" />
   </ItemGroup>
@@ -193,6 +194,7 @@
     <ClCompile Include="User\src\beep.c" />
     <ClCompile Include="User\src\delay.c" />
     <ClCompile Include="User\src\fire.c" />
+    <ClCompile Include="User\src\key.c" />
     <ClCompile Include="User\src\led.c" />
     <ClCompile Include="User\src\main.c" />
   </ItemGroup>
