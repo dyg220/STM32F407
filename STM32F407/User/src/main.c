@@ -5,11 +5,11 @@ int main(void)
 {
 	LED_Init();
 	Beep_Init();
-	BEEP_ON;
+	//BEEP_ON;
 	while (1)
 	{
-		//LED_Water();
-	
+		LED_Water();
+
 	}
 	return 0;
 }
