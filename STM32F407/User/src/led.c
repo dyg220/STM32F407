@@ -34,16 +34,20 @@ void LED_ALLON(void)
 //Á÷Ë®µÆ
 void LED_Water(void)
 {
-	for (u8 i = 0; i < 4; i++)
-	{
-		LED_ON(i + 1);
-		delay_ms(500);
-	}
+	static	u8 n = 1;
+	static u32 count = 0;
 
-	for (u8 i = 0; i < 4; i++)
+	LED_ON(n);
+	count++;
+	if (count >= 300000)
 	{
-		LED_OFF(i + 1);
-		delay_ms(500);
+		LED_OFF(n);
+		n++;
+		if (n > 4)
+		{
+			n = 1;
+		}
+		count = 0;
 	}
 
 }

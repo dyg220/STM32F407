@@ -11,21 +11,21 @@ int main(void)
 	//BEEP_OFF;
 	while (1)
 	{
-		//LED_Water();
-	/*	if (Fire_YES)
-		{
-			LED1_ON;
-		}
-		else
-		{
-			LED1_OFF;
-		}*/
+		LED_Water();
+		/*	if (Fire_YES)
+			{
+				LED1_ON;
+			}
+			else
+			{
+				LED1_OFF;
+			}*/
 		key_num = Key_Scan();
 		if (key_num == 1)
 		{
-			LED1_FZ;
+			BEEP_FZ;
 		}
-		
+
 	}
 	return 0;
 }
