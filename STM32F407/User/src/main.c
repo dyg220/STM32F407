@@ -1,8 +1,11 @@
 #include "main.h"
 
-u8 key_num = 0;
+
 int main(void)
 {
+	u8 key_num = 0;
+	u8 speed = 5;
+	u8 led_flag = 0;
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
@@ -11,7 +14,6 @@ int main(void)
 	//BEEP_OFF;
 	while (1)
 	{
-		//LED_Water();
 		/*	if (Fire_YES)
 			{
 				LED1_ON;
@@ -23,19 +25,31 @@ int main(void)
 		key_num = Key_Scan();
 		if (key_num == 1)
 		{
-			LED1_FZ;
+			led_flag = 1;
 		}
-		else if (key_num == 2)
+		if (key_num == 2)
 		{
-			LED2_FZ;
+			led_flag = 0;
 		}
-		else if (key_num == 3)
+		if ((key_num == 3) && led_flag)
 		{
-			LED3_FZ;
+			speed--;
+			if (speed < 1)
+				speed = 1;
 		}
-		else if (key_num == 4)
+		if ((key_num == 4) && led_flag)
 		{
-			LED4_FZ;
+			speed++;
+			if (speed > 10)
+				speed = 10;
+		}
+		if (led_flag == 1)
+		{
+			LED_Water(speed);
+		}
+		if (led_flag == 0)
+		{
+			LED_ALLOFF();
 		}
 	}
 	return 0;

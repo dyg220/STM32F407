@@ -23,7 +23,7 @@ void LED_ALLOFF(void);
 void LED_ALLON(void);
 void LED_ON(u8 num);
 void LED_OFF(u8 num);
-void LED_Water(void);
+void LED_Water(u8 speed);
 
 #endif
 

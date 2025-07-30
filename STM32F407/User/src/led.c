@@ -32,14 +32,14 @@ void LED_ALLON(void)
 
 
 //Á÷Ë®µÆ
-void LED_Water(void)
+void LED_Water(u8 speed)
 {
 	static	u8 n = 1;
 	static u32 count = 0;
 
 	LED_ON(n);
 	count++;
-	if (count >= 300000)
+	if (count >= speed * 50000)
 	{
 		LED_OFF(n);
 		n++;
