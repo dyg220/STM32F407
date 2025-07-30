@@ -41,19 +41,14 @@ u8 Key_Scan(void)
 {
 	u8 key_num = 0;
 	u32 key_count = 0;
-	if (KEY1_PRESS)
+	if (KEY1_PRESS) //初次确认
 	{
-		delay_us(200);
-		if (KEY1_PRESS)
-		{
+		delay_ms(20);
+		if (KEY1_PRESS) { //再次确认
 			key_num = 1;
-			key_count++;
-			if (key_count > 500)
-			{
-				key_num = 2;
-			}
 		}
 	}
+	while (KEY1_PRESS);  //等待松手
 
 	return key_num;
 }

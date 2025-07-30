@@ -6,9 +6,9 @@ int main(void)
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
-	BEEP_ON;
-	delay_ms(300);
-	BEEP_OFF;
+	//BEEP_ON;
+	//delay_ms(300);
+	//BEEP_OFF;
 	while (1)
 	{
 		//LED_Water();
@@ -23,13 +23,9 @@ int main(void)
 		key_num = Key_Scan();
 		if (key_num == 1)
 		{
-			LED1_ON;
+			LED1_FZ;
 		}
-		else if (key_num == 2)
-		{
-			LED1_OFF;
-		}
-
+		
 	}
 	return 0;
 }

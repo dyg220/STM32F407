@@ -13,6 +13,11 @@
 #define LED4_OFF 	(GPIOC->ODR |= 1 << 7)
 
 
+#define LED1_FZ 	(GPIOC->ODR ^= 1 << 4)
+#define LED2_FZ 	(GPIOC->ODR ^= 1 << 5)
+#define LED3_FZ 	(GPIOC->ODR ^= 1 << 6)
+#define LED4_FZ 	(GPIOC->ODR ^= 1 << 7)
+
 void LED_Init(void);
 void LED_ALLOFF(void);
 void LED_ALLON(void);
