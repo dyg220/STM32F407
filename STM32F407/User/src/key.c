@@ -6,17 +6,17 @@
 // PE3-key3 ：按下低电平
 // PE4-key4 ：按下低电平
 
-enum KEY_NUM
-{
-	key1_click = 1,
-	key1_long_click,
-	key2_click,
-	key2_long_click,
-	key3_click,
-	key3_long_click,
-	key4_click,
-	key4_long_click
-};
+// enum KEY_NUM
+//{
+//	key1_click = 1,
+//	key1_long_click,
+//	key2_click,
+//	key2_long_click,
+//	key3_click,
+//	key3_long_click,
+//	key4_click,
+//	key4_long_click
+// };
 
 void Key_Init(void)
 {
@@ -38,22 +38,40 @@ void Key_Init(void)
 
 u8 Key_Scan(void)
 {
-	static u8 key_flag = 1; //标志位
+	static u8 keyflag = 1;
 	u8 key_num = 0;
-	u32 key_count = 0;
-	if (KEY1_PRESS	&& key_flag) // 初次确认
+	if ((KEY1_PRESS || !KEY2_PRESS || !KEY3_PRESS || !KEY4_PRESS) && keyflag)	// 初次确认
 	{
 		delay_ms(20);
 		if (KEY1_PRESS)
-		{ // 再次确认
+		{
+			// 再次确认
 			key_num = 1;
-			key_flag = 0;
+			keyflag = 0;
+		}
+		else if (!KEY2_PRESS)
+		{
+			// 再次确认
+			key_num = 2;
+			keyflag = 0;
+		}
+		else if (!KEY3_PRESS)
+		{
+			// 再次确认
+			key_num = 3;
+			keyflag = 0;
+		}
+		else if (!KEY4_PRESS)
+		{
+			// 再次确认
+			key_num = 4;
+			keyflag = 0;
 		}
 	}
 	// while (KEY1_PRESS); // 等待松手
-	if (!KEY1_PRESS)
+	if (!KEY1_PRESS && KEY2_PRESS && KEY3_PRESS && KEY4_PRESS) // 按键抬起
 	{
-		key_flag = 1;
+		keyflag = 1;
 	}
 
 	return key_num;

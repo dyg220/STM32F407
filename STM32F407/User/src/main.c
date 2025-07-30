@@ -11,7 +11,7 @@ int main(void)
 	//BEEP_OFF;
 	while (1)
 	{
-		LED_Water();
+		//LED_Water();
 		/*	if (Fire_YES)
 			{
 				LED1_ON;
@@ -23,9 +23,20 @@ int main(void)
 		key_num = Key_Scan();
 		if (key_num == 1)
 		{
-			BEEP_FZ;
+			LED1_FZ;
 		}
-
+		else if (key_num == 2)
+		{
+			LED2_FZ;
+		}
+		else if (key_num == 3)
+		{
+			LED3_FZ;
+		}
+		else if (key_num == 4)
+		{
+			LED4_FZ;
+		}
 	}
 	return 0;
 }
