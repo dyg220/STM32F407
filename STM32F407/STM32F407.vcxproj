@@ -144,6 +144,7 @@
     <ClInclude Include="User\inc\key.h" />
     <ClInclude Include="User\inc\led.h" />
     <ClInclude Include="User\inc\main.h" />
+    <ClInclude Include="User\inc\usart1.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cmsis\stm32f4xx_it.c" />
@@ -197,6 +198,7 @@
     <ClCompile Include="User\src\key.c" />
     <ClCompile Include="User\src\led.c" />
     <ClCompile Include="User\src\main.c" />
+    <ClCompile Include="User\src\usart1.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Cmsis\startup_stm32f40xx.s" />
