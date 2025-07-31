@@ -2,7 +2,6 @@
 
 //PA9--TX
 //PA10--RX
-
 void USART1_Init(u32 baud)
 {
 	/*配置IO口*/
@@ -24,7 +23,6 @@ void USART1_Init(u32 baud)
 
 }
 
-
 //接收一个字节数据
 u8 USART1_RecvByte(void)
 {
@@ -43,5 +41,4 @@ void USART1_SendByte(u8 Byte)
 	while ((USART1->SR&(1 << 7)) == 0);
 	//把数据发给DR
 	USART1->DR = Byte;
-
 }
