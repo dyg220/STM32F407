@@ -7,6 +7,9 @@ void USART1_Init(u32 baud)
 	/*配置IO口*/
 	//I0口时钟使能
 	RCC->AHB1ENR = (1 << 0);
+	//USART1的时钟使能
+	RCC->APB2ENR |= (1 << 4);
+
 	//配置复用模式
 	GPIOA->MODER &= ~((3 << 18) | (3 << 20));
 	GPIOA->MODER |= ((2 << 18) | (2 << 20));
@@ -42,7 +45,7 @@ u8 USART1_RecvByte(void)
 {
 	u8 data = 0;
 	//等待接受数据寄存器不为空
-	while ((USART1->SR &(1 << 5)) == 0);
+	while ((USART1->SR&(1 << 5)) == 0);
 	//从DR中读出数据
 	data = USART1->DR;
 	return data;

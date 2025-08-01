@@ -9,6 +9,7 @@ int main(void)
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
+	USART1_Init(115200);
 	//BEEP_ON;
 	//delay_ms(300);
 	//BEEP_OFF;
