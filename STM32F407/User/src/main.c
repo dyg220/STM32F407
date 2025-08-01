@@ -26,8 +26,9 @@ int main(void)
 			else
 			{
 				LED1_OFF;
-			}*/
-			/*key_num = Key_Scan();
+			}
+		*/
+		/*key_num = Key_Scan();
 				if (key_num == 1)
 				{
 					led_flag = 1;
