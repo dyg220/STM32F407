@@ -7,6 +7,7 @@
 #include "fire.h"
 #include "key.h"
 #include "usart1.h"
+#include "usart2.h"
 
 #include <string.h>
 #include <stdlib.h>

@@ -13,7 +13,7 @@ int main(void)
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
-	char buff[255] = { 0 };
+	char buff[] = { 0 };
 	//BEEP_ON;
 	//delay_ms(300);
 	//BEEP_OFF;
@@ -58,12 +58,7 @@ int main(void)
 					LED_ALLOFF();
 				}*/
 
-		USART1_RecvStr(buff);
-		int flag = strcmp("ON", buff);
-		if (flag)
-		{
-			LED1_ON;
-		}
+		USART1_SendStr("test1\r\n");
 		delay_ms(500);
 
 	}
