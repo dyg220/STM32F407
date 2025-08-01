@@ -6,6 +6,7 @@
 #include "beep.h"
 #include "fire.h"
 #include "key.h"
+#include "usart1.h"
 
 //#include <string.h>
 //#include <stdlib.h>
