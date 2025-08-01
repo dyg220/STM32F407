@@ -87,8 +87,8 @@
     <NMakePreprocessorDefinitions>__CC_ARM;__arm__;__GNUC__;STM32F401xx;USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <NMakeIncludeSearchPath>C:\Keil_v5\ARM\ARMCC\include;Cmsis;Library\STM32F4xx_StdPeriph_Driver\inc;User\inc</NMakeIncludeSearchPath>
-    <NMakePreprocessorDefinitions>__arm__;__CC_ARM;__GNUC__;STM32F401xx;USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>D:\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include;Cmsis;Library\STM32F4xx_StdPeriph_Driver\inc;User\inc</NMakeIncludeSearchPath>
+    <NMakePreprocessorDefinitions>__arm__;__CC_ARM;__GNUC__;armeabi;STM32F401xx;USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <ItemGroup>
     <ClInclude Include="Cmsis\core_cm4.h" />

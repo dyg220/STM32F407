@@ -59,3 +59,26 @@ void USART1_SendByte(u8 Byte)
 	//把数据发给DR
 	USART1->DR = Byte;
 }
+
+void USART1_SendStr(char* str)
+{
+	while (*str != '\0')
+	{
+		USART1_SendByte(*str);
+		str++;
+	}
+	USART1_SendByte('\0');
+}
+
+void USART1_RecvStr(char* str)
+{
+	u8 data = 0;
+	do
+	{
+		data = USART1_RecvByte();
+		*str = data;
+		str++;
+	} while (data != '\n');
+	str--;			//接收到\n
+	*str = '\0';	//将\n覆盖
+}

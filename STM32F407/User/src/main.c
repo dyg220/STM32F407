@@ -1,5 +1,7 @@
 #include "main.h"
 
+#include <string.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -11,6 +13,7 @@ int main(void)
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
+	char buff[255] = { 0 };
 	//BEEP_ON;
 	//delay_ms(300);
 	//BEEP_OFF;
@@ -54,15 +57,11 @@ int main(void)
 					LED_ALLOFF();
 				}*/
 
-		data = USART1_RecvByte();
-		if (data == 'O')
+		USART1_RecvStr(buff);
+		int flag = strcmp("ON", buff);
+		if (flag)
 		{
 			LED1_ON;
-
-		}
-		if (data == 'N')
-		{
-			LED1_OFF;
 		}
 		delay_ms(500);
 

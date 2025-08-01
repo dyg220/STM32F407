@@ -8,8 +8,8 @@
 #include "key.h"
 #include "usart1.h"
 
-//#include <string.h>
-//#include <stdlib.h>
+#include <string.h>
+#include <stdlib.h>
 
 #endif
 
