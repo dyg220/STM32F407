@@ -1,4 +1,6 @@
 #include "usart1.h"
+#include <stdio.h>
+#include <string.h>
 
 //PA9--TX
 //PA10--RX
@@ -35,6 +37,16 @@ void USART1_Init(u32 baud)
 	USART1->CR1 |= (1 << 2);//接收器使能
 	//CR2
 	USART1->CR2 &= ~(3 << 12);//停止位（1位）
+
+	//设置具体中断通道优先级
+	NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(7 - 2, 2, 2));
+	//使能通道
+	NVIC_EnableIRQ(USART1_IRQn);
+
+
+	USART1->CR1 |= (1 << 5);
+	USART1->CR1 |= (1 << 4);
+
 	//USART使能
 	USART1->CR1 |= (1 << 13);
 
@@ -78,7 +90,67 @@ void USART1_RecvStr(char* str)
 		data = USART1_RecvByte();
 		*str = data;
 		str++;
-	} while (data != '\n');
-	str--;			//接收到\n
+	} while (data != '\0');
+	str--;		//接收到\n
 	*str = '\0';	//将\n覆盖
 }
+
+u8 usart_data[20] = { 0 };
+int len;
+u8 usart_flag = 0;
+void USART1_IRQHandler(void)
+{
+	u8 clear = 0;
+	if (USART1->SR&(1 << 5))  //接收中断
+	{
+		//既接收数据又清除标志位
+		usart_data[len] = USART1->DR;
+		len++;
+		//printf("%c\r\n", usart_data);
+
+	}
+	else if (USART1->SR&(1 << 4)) //空闲中断
+	{
+		clear = USART1->SR;
+		clear = USART1->DR;
+		(void)clear; //去除警告
+
+		usart_flag = 1;
+
+	}
+}
+
+/****************************************************
+函数功能：printf重定向
+参    数：None
+返 回 值：None
+备    注：
+*****************************************************/
+#if 1
+#pragma import(__use_no_semihosting)             
+//标准库需要的支持函数                 
+struct __FILE
+{
+	int handle;
+};
+
+FILE __stdout;
+//定义_sys_exit()以避免使用半主机模式    
+void _sys_exit(int x)
+{
+	x = x;
+}
+void _ttywrch(int ch)
+{
+	ch = ch;
+}
+//重定义fputc函数 
+int fputc(int ch, FILE *f)
+{
+	USART1_SendByte(ch);
+	return ch;
+}
+
+/**********************printf support end**********************/
+
+#endif
