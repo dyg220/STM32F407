@@ -12,10 +12,9 @@ int main(void)
 	u8 key_num = 0;
 	u8 speed = 5;
 	u8 led_flag = 0;
-	u8 data = 0;
 	//设置优先级分组
 	NVIC_SetPriorityGrouping(7 - 2);
-	USART2_Init(115200);
+	USART1_Init(115200);
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
@@ -65,11 +64,11 @@ int main(void)
 				}*/
 
 		LED_Water(5);
-		if (USART2_Recv.flag == 1)
+		if (USART1_Recv.flag == 1)
 		{
-			USART2_Recv.flag = 0;
-			printf("%s\r\n", USART2_Recv.data);
-			memset(USART1_Recv.data, 0, sizeof(USART2_Recv.data));
+			USART1_Recv.flag = 0;
+			printf("%s\r\n", USART1_Recv.data);
+			memset(USART1_Recv.data, 0, sizeof(USART1_Recv.data));
 		}
 
 

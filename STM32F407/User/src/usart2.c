@@ -1,5 +1,5 @@
 #include "usart2.h"
-
+#include <stdio.h>
 
 void USART2_Init(u32 baud)
 {
