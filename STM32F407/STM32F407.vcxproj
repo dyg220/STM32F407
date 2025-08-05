@@ -140,6 +140,7 @@
     <ClInclude Include="Library\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h" />
     <ClInclude Include="User\inc\beep.h" />
     <ClInclude Include="User\inc\delay.h" />
+    <ClInclude Include="User\inc\exti.h" />
     <ClInclude Include="User\inc\fire.h" />
     <ClInclude Include="User\inc\key.h" />
     <ClInclude Include="User\inc\led.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="Library\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c" />
     <ClCompile Include="User\src\beep.c" />
     <ClCompile Include="User\src\delay.c" />
+    <ClCompile Include="User\src\exti.c" />
     <ClCompile Include="User\src\fire.c" />
     <ClCompile Include="User\src\key.c" />
     <ClCompile Include="User\src\led.c" />

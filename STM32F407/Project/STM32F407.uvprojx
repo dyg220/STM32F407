@@ -657,6 +657,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\src\usart2.c</FilePath>
             </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\exti.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
