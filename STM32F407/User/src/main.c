@@ -6,7 +6,9 @@
 
 extern u8 usart_flag;
 extern u8 usart_data[20];
-extern int len;
+extern int usart_len;
+extern u8 usart2_data;
+
 int main(void)
 {
 	u8 key_num = 0;
@@ -15,11 +17,10 @@ int main(void)
 	u8 data = 0;
 	//设置优先级分组
 	NVIC_SetPriorityGrouping(7 - 2);
-	USART1_Init(115200);
+	USART2_Init(115200);
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
-	char buff[255] = { 0 };
 	// BEEP_ON;
 	// delay_ms(300);
 	// BEEP_OFF;
@@ -66,14 +67,9 @@ int main(void)
 				}*/
 
 		LED_Water(5);
-		if (usart_flag == 1)
-		{
-			usart_flag = 0;
-			usart_data[len] = '\0';
-			printf("%s\r\n", usart_data);
-			memset(usart_data, 0, sizeof(usart_data));
-			len = 0;  //下标清零
-		}
+	
+
+
 	}
 	return 0;
 }

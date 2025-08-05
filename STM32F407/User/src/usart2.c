@@ -33,6 +33,18 @@ void USART2_Init(u32 baud)
 	USART2->CR1 |= (1 << 2);//接收器使能
 	//CR2
 	USART2->CR2 &= ~(3 << 12);//停止位（1位）
+
+
+	/*NVIC配置*/
+	//设置具体中断通道优先级
+	NVIC_SetPriority(USART2_IRQn, NVIC_EncodePriority(7 - 2, 2, 1));
+	//使能中断通道
+	NVIC_EnableIRQ(USART2_IRQn);
+
+	//使能接收中断+空闲中断控制位
+	USART2->CR1 |= (1 << 5);
+	USART2->CR1 |= (1 << 4);
+
 	//USART使能
 	USART2->CR1 |= (1 << 13);
 
@@ -80,4 +92,35 @@ void USART2_RecvStr(char* str)
 	} while (data != '\n');
 	str--;			//接收到\n
 	*str = '\0';	//将\n覆盖
+}
+
+
+u8 usart2_data[50] = { 0 };
+u8 usart2_len = 0;
+u8 usart2_flag = 0;
+
+void USART2_IRQHandler(void)
+{
+	u8 clean = 0;
+	//接受中断
+	if (USART2->SR&(1 << 5))
+	{
+		//清除标志位
+		usart2_data[usart2_len] = USART2->DR;	//即接受数据又能清除标志位
+		usart2_len++;
+	}
+	//空闲中断
+	else if (USART2->SR&(1 << 4))
+	{
+		//清除标志位
+		clean = USART2->SR;
+		clean = USART2->DR;
+		(void)clean;		//去除警告
+		usart2_flag = 1;
+		usart2_data[usart2_len] = '\0';
+		printf("%s\r\n", usart2_data);
+		//memset(usart2_data, 0, sizeof(usart2_data));
+		//usart2_flag = 0;	//下标清零
+	}
+
 }
