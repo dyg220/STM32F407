@@ -105,7 +105,7 @@ void USART1_IRQHandler(void)
 		//既接收数据又清除标志位
 		USART1_Recv.data[USART1_Recv.index] = USART1->DR;
 		USART1_Recv.index++;
-		//printf("%c\r\n", usart_data);
+		//printf("%c\r\n", USART1_Recv.data);
 
 	}
 	else if (USART1->SR&(1 << 4)) //空闲中断
