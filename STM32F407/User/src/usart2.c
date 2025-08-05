@@ -95,9 +95,7 @@ void USART2_RecvStr(char* str)
 }
 
 
-u8 usart2_data[50] = { 0 };
-u8 usart2_len = 0;
-u8 usart2_flag = 0;
+USART_INFO USART2_Recv = { 0 };
 
 void USART2_IRQHandler(void)
 {
@@ -106,8 +104,8 @@ void USART2_IRQHandler(void)
 	if (USART2->SR&(1 << 5))
 	{
 		//清除标志位
-		usart2_data[usart2_len] = USART2->DR;	//即接受数据又能清除标志位
-		usart2_len++;
+		USART2_Recv.data[USART2_Recv.index] = USART2->DR;	//即接受数据又能清除标志位
+		USART2_Recv.index++;
 	}
 	//空闲中断
 	else if (USART2->SR&(1 << 4))
@@ -116,11 +114,9 @@ void USART2_IRQHandler(void)
 		clean = USART2->SR;
 		clean = USART2->DR;
 		(void)clean;		//去除警告
-		usart2_flag = 1;
-		usart2_data[usart2_len] = '\0';
-		printf("%s\r\n", usart2_data);
-		//memset(usart2_data, 0, sizeof(usart2_data));
-		//usart2_flag = 0;	//下标清零
+		USART2_Recv.flag = 1;
+		USART2_Recv.data[USART2_Recv.index] = '\0';
+		USART2_Recv.index = 0;	//下标清零
 	}
 
 }

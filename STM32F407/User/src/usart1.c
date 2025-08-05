@@ -95,17 +95,16 @@ void USART1_RecvStr(char* str)
 	*str = '\0';	//将\n覆盖
 }
 
-u8 usart_data[20] = { 0 };
-int usart_len;
-u8 usart_flag = 0;
+USART_INFO USART1_Recv = { 0 };
+
 void USART1_IRQHandler(void)
 {
 	u8 clean = 0;
 	if (USART1->SR&(1 << 5))  //接收中断
 	{
 		//既接收数据又清除标志位
-		usart_data[usart_len] = USART1->DR;
-		usart_len++;
+		USART1_Recv.data[USART1_Recv.index] = USART1->DR;
+		USART1_Recv.index++;
 		//printf("%c\r\n", usart_data);
 
 	}
@@ -114,10 +113,9 @@ void USART1_IRQHandler(void)
 		clean = USART1->SR;
 		clean = USART1->DR;
 		(void)clean; //去除警告
-
-		usart_flag = 1;
-		usart_data[usart_len] = '\0';
-		usart_flag = 0;//下标清零
+		USART1_Recv.flag = 1;
+		USART1_Recv.data[USART1_Recv.index] = '\0';
+		USART1_Recv.index = 0;//下标清零
 	}
 }
 

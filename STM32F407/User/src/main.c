@@ -4,10 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern u8 usart_flag;
-extern u8 usart_data[20];
-extern int usart_len;
-extern u8 usart2_data;
+extern USART_INFO USART1_Recv;
+extern USART_INFO USART2_Recv;
 
 int main(void)
 {
@@ -67,7 +65,12 @@ int main(void)
 				}*/
 
 		LED_Water(5);
-	
+		if (USART2_Recv.flag == 1)
+		{
+			USART2_Recv.flag = 0;
+			printf("%s\r\n", USART2_Recv.data);
+			memset(USART1_Recv.data, 0, sizeof(USART2_Recv.data));
+		}
 
 
 	}
