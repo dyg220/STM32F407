@@ -9,11 +9,10 @@ extern USART_INFO USART2_Recv;
 
 int main(void)
 {
-	u8 key_num = 0;
+	/*u8 key_num = 0;
 	u8 speed = 5;
-	u8 led_flag = 0;
-	//设置优先级分组
-	NVIC_SetPriorityGrouping(7 - 2);
+	u8 led_flag = 0;*/
+	NVIC_SetPriorityGrouping(7 - 2); 	//设置优先级分组
 	USART1_Init(115200);
 	LED_Init();
 	Beep_Init();
@@ -62,7 +61,6 @@ int main(void)
 				{
 					LED_ALLOFF();
 				}*/
-
 		LED_Water(5);
 		if (USART1_Recv.flag == 1)
 		{

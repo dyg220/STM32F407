@@ -1,7 +1,7 @@
 #ifndef _USART1_H_
 #define _USART1_H_
 #include "stm32f4xx.h"        
-#define Max_Size 256
+#define Max_Size	256
 
 typedef struct {
 	char data[Max_Size];
