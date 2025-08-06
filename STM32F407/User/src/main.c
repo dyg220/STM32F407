@@ -65,19 +65,19 @@ int main(void)
 					LED_ALLOFF();
 				}*/
 				//LED_Water(5);
-	/*	if (USART1_Recv.flag == 1)
-		{
-			USART1_Recv.flag = 0;
-			printf("%s", USART1_Recv.data);
-			memset(USART1_Recv.data, 0, sizeof(USART1_Recv.data));
-		}
-		key_num = Key_Scan();
-		if (key_num == 2)
-		{
-			EXTI->SWIER |= (1 << 6);
-		}*/
+				/*	if (USART1_Recv.flag == 1)
+				{
+					USART1_Recv.flag = 0;
+					printf("%s", USART1_Recv.data);
+					memset(USART1_Recv.data, 0, sizeof(USART1_Recv.data));
+				}
+				key_num = Key_Scan();
+				if (key_num == 2)
+				{
+					EXTI->SWIER |= (1 << 6);
+				}*/
 		printf("hello world!\r\n");
-		systick_xms(1000);
+		systick_xms(500);
 
 	}
 	return 0;
