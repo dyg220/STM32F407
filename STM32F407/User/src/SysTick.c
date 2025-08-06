@@ -10,10 +10,12 @@ void systick_us(u32 xus)
 	SysTick->LOAD = 21 * xus - 1;
 	//计数器清零
 	SysTick->VAL = 0;
+	//不使能中断
+	SysTick->CTRL &= ~(1 << 1);
 	//定时器使能
 	SysTick->CTRL |= (1 << 0);
 	//等待计数结束
-	while (!(SysTick->CTRL&(1 << 16)));
+	while (!(SysTick->CTRL & (1 << 16)));
 	//关闭定时器
 	SysTick->CTRL &= ~(1 << 0);
 
@@ -28,10 +30,12 @@ void systick_ms(u32 xms)
 	SysTick->LOAD = 21000 * xms - 1;
 	//计数器清零
 	SysTick->VAL = 0;
+	//不使能中断
+	SysTick->CTRL &= ~(1 << 1);
 	//定时器使能
 	SysTick->CTRL |= (1 << 0);
 	//等待计数结束
-	while (!(SysTick->CTRL&(1 << 16)));
+	while (!(SysTick->CTRL & (1 << 16)));
 	//关闭定时器
 	SysTick->CTRL &= ~(1 << 0);
 }
@@ -45,6 +49,7 @@ void systick_xms(u32 xms)
 	}
 }
 
+//配置定时中断，外部时钟
 void systick_interrupt(u32 xms)
 {
 	//时钟源选择
@@ -61,6 +66,7 @@ void systick_interrupt(u32 xms)
 	SysTick->CTRL |= (1 << 0);
 }
 
+//内部时钟
 void SysTick_Config_Own(u8 xms)
 {
 	SysTick_Config(168000 * xms);   //1ms*xms
@@ -72,11 +78,11 @@ void SysTick_Handler(void)
 	//清除标志位
 	SysTick->VAL = 0;
 	//紧急事件
-	tick_cnt++;
-	if (tick_cnt >= 300)  //300ms
-	{
-		LED1_FZ;
-		tick_cnt = 0;
-	}
+	//tick_cnt++;
+	//if (tick_cnt >= 300)  //300ms
+	//{
+	//	LED1_FZ;
+	//	tick_cnt = 0;
+	//}
 
 }
