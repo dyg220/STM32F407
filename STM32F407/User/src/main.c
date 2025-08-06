@@ -18,7 +18,7 @@ int main(void)
     Beep_Init();
 	Fire_Init();
 
-	// systick_interrupt(500); //配置定时中断，外部时钟
+	//systick_interrupt(500); //配置定时中断，外部时钟
 	//SysTick_Config_Own(1); //系统配置定时中断
 	// EXTI0_IRQ_Config();
 	// EXTI4_IRQ_Config();
