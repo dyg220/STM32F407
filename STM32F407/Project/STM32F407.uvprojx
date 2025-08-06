@@ -662,6 +662,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\src\exti.c</FilePath>
             </File>
+            <File>
+              <FileName>SysTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\SysTick.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

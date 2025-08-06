@@ -17,9 +17,9 @@ int main(void)
 	LED_Init();
 	Beep_Init();
 	Fire_Init();
-	EXTI0_IRQ_Config();
-	EXTI4_IRQ_Config();
-	EXTI6_SoftIRQ_Config();
+	//EXTI0_IRQ_Config();
+	//EXTI4_IRQ_Config();
+	//EXTI6_SoftIRQ_Config();
 	// BEEP_ON;
 	// delay_ms(300);
 	// BEEP_OFF;
@@ -65,7 +65,7 @@ int main(void)
 					LED_ALLOFF();
 				}*/
 				//LED_Water(5);
-		if (USART1_Recv.flag == 1)
+	/*	if (USART1_Recv.flag == 1)
 		{
 			USART1_Recv.flag = 0;
 			printf("%s", USART1_Recv.data);
@@ -75,7 +75,10 @@ int main(void)
 		if (key_num == 2)
 		{
 			EXTI->SWIER |= (1 << 6);
-		}
+		}*/
+		printf("hello world!\r\n");
+		systick_xms(1000);
+
 	}
 	return 0;
 }
