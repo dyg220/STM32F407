@@ -1,88 +1,28 @@
-#include "main.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-extern USART_INFO USART1_Recv;
-extern USART_INFO USART2_Recv;
+#include "main.h" // Device header
 
 int main(void)
 {
-	u8 key_num = 0;
-	u8 speed = 5;
-	u8 led_flag = 0;
-	NVIC_SetPriorityGrouping(7 - 2); // 设置优先级分组
-	USART1_Init(115200);
-	LED_Init();
-    Beep_Init();
-	Fire_Init();
 
-	//systick_interrupt(500); //配置定时中断，外部时钟
-	//SysTick_Config_Own(1); //系统配置定时中断
-	// EXTI0_IRQ_Config();
-	// EXTI4_IRQ_Config();
-	// EXTI6_SoftIRQ_Config();
-	//  BEEP_ON;
-	//  delay_ms(300);
-	//  BEEP_OFF;
-	float a = 2.28;
+	NVIC_SetPriorityGrouping(7 - 2); // 设置优先级分组
+
+	LED_Init();  // LED初始化
+	Beep_Init(); // 蜂鸣器初始化
+	Fire_Init(); // 火焰初始化
+	Key_Init();  // 按键初始化
+
+	USART1_Init(115200); // 串口1初始化
+	USART2_Init(115200); // 串口2初始化
+	//	EXTI0_IRQ_Config();//EXTI0线配置
+	//	EXTI4_IRQ_Config();//EXTI4线配置
+	//	EXTI6_SoftIRQ_Config();//软件中断
+	//	SysTick_interrupt_Init(500);
+
+	SysTick_Config_Own(1);
+
 	while (1)
 	{
-		/*	if (Fire_YES)
-			{
-				LED1_ON;
-			}
-			else
-			{
-				LED1_OFF;
-			}
-		*/
-		/*key_num = Key_Scan();
-				if (key_num == 1)
-				{
-					led_flag = 1;
-				}
-				if (key_num == 2)
-				{
-					led_flag = 0;
-				}
-				if ((key_num == 3) && led_flag)
-				{
-					speed--;
-					if (speed < 1)
-						speed = 1;
-				}
-				if ((key_num == 4) && led_flag)
-				{
-					speed++;
-					if (speed > 10)
-						speed = 10;
-				}
-				if (led_flag == 1)
-				{
-					LED_Water(speed);
-				}
-				if (led_flag == 0)
-				{
-					LED_ALLOFF();
-				}*/
-		// LED_Water(5);
-		/*	if (USART1_Recv.flag == 1)
-				{
-					USART1_Recv.flag = 0;
-					printf("%s", USART1_Recv.data);
-					memset(USART1_Recv.data, 0, sizeof(USART1_Recv.data));
-				}
-				key_num = Key_Scan();
-				if (key_num == 2)
-				{
-					EXTI->SWIER |= (1 << 6);
-				}*/
-
-
-		printf("hello --------------- \r\n");
-		systick_xms(500);
+		printf("延时开始\r\n");
+		Sys_Interrupt_delay(500); // 中断实现的延时函数
+		printf("结束\r\n");
 	}
-	return 0;
 }

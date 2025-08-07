@@ -5,7 +5,7 @@ void USART2_Init(u32 baud)
 {
 	/*配置IO口*/
 	//I0口时钟使能
-	RCC->AHB1ENR = (1 << 0);
+	RCC->AHB1ENR |= (1 << 0);
 	//USART1的时钟使能
 	RCC->APB1ENR |= (1 << 17);
 

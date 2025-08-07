@@ -7,8 +7,8 @@
 void USART1_Init(u32 baud)
 {
 	/*配置IO口*/
-	//I0口时钟使能
-	RCC->AHB1ENR = (1 << 0);
+	//IO口时钟使能
+	RCC->AHB1ENR |= (1 << 0);
 	//USART1的时钟使能
 	RCC->APB2ENR |= (1 << 4);
 
@@ -95,7 +95,24 @@ void USART1_RecvStr(char* str)
 	*str = '\0';	//将\n覆盖
 }
 
+
 USART_INFO USART1_Recv = { 0 };
+/*********************************************************
+*函 数 名：USART1_Recv
+*函数功能：串口1接收并打印
+*参    数：void
+*返 回 值：void
+*备    注：
+**********************************************************/
+void USART1_RECV(void)
+{
+	if (USART1_Recv.flag == 1)
+	{
+		USART1_Recv.flag = 0;
+		printf("%s\r\n", USART1_Recv.data);
+		memset(USART1_Recv.data, 0, sizeof(USART1_Recv.data));
+	}
+}
 
 void USART1_IRQHandler(void)
 {

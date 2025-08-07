@@ -88,7 +88,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <NMakeIncludeSearchPath>D:\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include;Cmsis;Library\STM32F4xx_StdPeriph_Driver\inc;User\inc</NMakeIncludeSearchPath>
-    <NMakePreprocessorDefinitions>__arm__;__CC_ARM;__GNUC__;armeabi;STM32F401xx;USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>
+    <NMakePreprocessorDefinitions>__arm__;__CC_ARM;__GNUC__;armeabi;STM32F40_41xxx;USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <ItemGroup>
     <ClInclude Include="Cmsis\core_cm4.h" />
@@ -145,7 +145,7 @@
     <ClInclude Include="User\inc\key.h" />
     <ClInclude Include="User\inc\led.h" />
     <ClInclude Include="User\inc\main.h" />
-    <ClInclude Include="User\inc\SysTick.h" />
+    <ClInclude Include="User\inc\systick.h" />
     <ClInclude Include="User\inc\usart1.h" />
     <ClInclude Include="User\inc\usart2.h" />
   </ItemGroup>
@@ -202,7 +202,7 @@
     <ClCompile Include="User\src\key.c" />
     <ClCompile Include="User\src\led.c" />
     <ClCompile Include="User\src\main.c" />
-    <ClCompile Include="User\src\SysTick.c" />
+    <ClCompile Include="User\src\systick.c" />
     <ClCompile Include="User\src\usart1.c" />
     <ClCompile Include="User\src\usart2.c" />
   </ItemGroup>

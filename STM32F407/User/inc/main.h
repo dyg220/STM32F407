@@ -9,7 +9,7 @@
 #include "usart1.h"
 #include "usart2.h"
 #include "exti.h"
-#include "SysTick.h"
+#include "systick.h"
 
 #include <string.h>
 #include <stdlib.h>

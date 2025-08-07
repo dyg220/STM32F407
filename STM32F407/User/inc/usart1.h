@@ -15,7 +15,7 @@ u8   USART1_RecvByte(void);
 void USART1_SendByte(u8 Byte);
 void USART1_SendStr(char* str);
 void USART1_RecvStr(char* str);
-
+void USART1_RECV(void);
 
 
 #endif // !_USART1_H_
