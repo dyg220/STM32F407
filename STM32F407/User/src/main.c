@@ -5,7 +5,7 @@ int main(void)
 
 	NVIC_SetPriorityGrouping(7 - 2); // 设置优先级分组
 
-	LED_Init();  // LED初始化
+	Led_Init();  // LED初始化
 	Beep_Init(); // 蜂鸣器初始化
 	Fire_Init(); // 火焰初始化
 	Key_Init();  // 按键初始化

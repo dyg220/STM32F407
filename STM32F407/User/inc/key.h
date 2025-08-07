@@ -1,13 +1,17 @@
 #ifndef _KEY_H_
 #define _KEY_H_
+
 #include "stm32f4xx.h"                  // Device header
+#include "delay.h"
+#include "systick.h"
 
-#define KEY1_PRESS	(GPIOA->IDR&(0x01<<0))
-#define KEY2_PRESS	(GPIOE->IDR&(0x01<<2))
-#define KEY3_PRESS	(GPIOE->IDR&(0x01<<3))
-#define KEY4_PRESS	(GPIOE->IDR&(0x01<<4))
+#define Key1Press	(GPIOA->IDR&(1<<0))
+#define Key2Press	!(GPIOE->IDR&(1<<2))
+#define Key3Press	!(GPIOE->IDR&(1<<3))
+#define Key4Press	!(GPIOE->IDR&(1<<4))
 
-void Key_Init(void);  //°´¼ü³õÊ¼»¯
+
+void Key_Init(void);
 u8 Key_Scan(void);
 
 #endif

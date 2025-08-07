@@ -5,6 +5,7 @@
 #include "led.h"
 #include "delay.h"
 #include "beep.h"
+#include "stdio.h"
 
 void EXTI0_IRQ_Config(void);
 void EXTI4_IRQ_Config(void);

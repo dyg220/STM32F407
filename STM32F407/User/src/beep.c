@@ -1,16 +1,26 @@
 #include "beep.h"
 
-//BEEP/PE0
-void  Beep_Init(void)
+/*********************************************************
+*函 数 名：Beep_Init
+*函数功能：蜂鸣器初始化
+*参    数：None
+*返 回 值：None
+*备    注：BEEP---PE0   高电平导通
+**********************************************************/
+void Beep_Init(void)
 {
-	RCC->AHB1ENR |= 1 << 4; //使能GPIOE
-
-	GPIOE->MODER &= ~(3 << 0);  //01 通用输出模式
-	GPIOE->MODER |= 1 << 0;
-
-	GPIOE->OTYPER &= ~(1 << 0);  //推挽输出
-	GPIOE->OSPEEDR &= ~(3 << 0); //2Mhz
-	GPIOE->PUPDR &= ~(3 << 0);	 //无上下拉
-
-	BEEP_OFF;
+	//时钟使能
+	RCC->AHB1ENR |= (1<<4);
+	//配置为输出模式
+	GPIOE->MODER &= ~(3<<0);
+	GPIOE->MODER |= (1<<0);
+	//输出类型为推挽
+	GPIOE->OTYPER &= ~(1<<0);
+	//输出速度（低速）
+	GPIOE->OSPEEDR &= ~(3<<0);
+	//无上下拉
+	GPIOE->PUPDR &= ~(3<<0);
+	
+	Beep_OFF;
 }
+
