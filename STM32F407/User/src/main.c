@@ -20,10 +20,11 @@ int main(void)
 
 	//SysTick_Config_Own(1);
 
+	timer6_init(5000 - 1, 8400 - 1);	//重装载值:5000-1, 分频8400-1
 	while (1)
 	{
-		printf("test--------------\r\n");
-		delay_xms(1000);//中断实现的延时函数
+		//printf("test--------------\r\n");
+		//delay_xms(1000);//中断实现的延时函数
 
 	}
 }

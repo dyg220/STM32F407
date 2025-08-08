@@ -667,6 +667,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\src\systick.c</FilePath>
             </File>
+            <File>
+              <FileName>tim6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\tim6.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

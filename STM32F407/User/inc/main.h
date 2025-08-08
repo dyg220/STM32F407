@@ -14,7 +14,7 @@
 #include "usart2.h"
 #include "exti.h"
 #include "systick.h"
-
+#include "tim6.h"
 
 #endif
 
