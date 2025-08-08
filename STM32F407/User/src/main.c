@@ -3,6 +3,7 @@
 
 int main(void)
 {
+	u8 keynum = 0;
 
 	NVIC_SetPriorityGrouping(7 - 2);//设置优先级分组
 
@@ -22,11 +23,20 @@ int main(void)
 	//SysTick_Config_Own(1);
 
 	TIM7_Interrupt_ms(500);
+	IWDG_Init();
 	while (1)
 	{
 		//printf("test--------------\r\n");
 		//delay_xms(1000);//中断实现的延时函数
-		Led_Water(4);
+		//Led_Water(4);
+		keynum = Key_Scan();
+		if (keynum == 2)
+		{
+			IWDG_Feed();
+		}
+
+
+
 	}
 }
 
