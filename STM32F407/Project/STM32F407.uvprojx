@@ -672,6 +672,21 @@
               <FileType>1</FileType>
               <FilePath>..\User\src\tim6.c</FilePath>
             </File>
+            <File>
+              <FileName>sr04.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\sr04.c</FilePath>
+            </File>
+            <File>
+              <FileName>tim7.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\tim7.c</FilePath>
+            </File>
+            <File>
+              <FileName>tim11.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\tim11.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

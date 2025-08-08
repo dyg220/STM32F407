@@ -15,6 +15,11 @@
 #include "exti.h"
 #include "systick.h"
 #include "tim6.h"
+#include "tim7.h"
+#include "tim11.h"
+#include "sr04.h"
+
+
 
 #endif
 
