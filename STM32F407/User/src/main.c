@@ -23,7 +23,7 @@ int main(void)
 	while (1)
 	{
 		printf("test--------------\r\n");
-		delay_ms(500);//中断实现的延时函数
+		delay_xms(1000);//中断实现的延时函数
 
 	}
 }
