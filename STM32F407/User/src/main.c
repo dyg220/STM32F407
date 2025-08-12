@@ -1,7 +1,12 @@
 #include "main.h"                  // Device header
 
+u8 flag = 0;
+
+
 int main(void)
 {
+	u8 keynum = 0;
+	int right = 0;
 	NVIC_SetPriorityGrouping(7-2);//设置优先级分组
 	
 	Led_Init();//LED初始化
@@ -15,11 +20,27 @@ int main(void)
 //	TIM7_Interrupt_ms(500);	
 	WWDG_Init();
 	
+	Breath_Init();
+
+
 	printf("Start！\r\n");
 
 	while(1)
 	{
-		
+		if (flag == 0)
+		{
+			right += 1;
+			Light_Set(right);
+			if (right >= 100)flag = 1;
+			delay_ms(10);
+		}
+		if (flag == 1)
+		{
+			right -= 1;
+			Light_Set(right);
+			if (right <= 0)flag = 0;
+			delay_ms(10);
+		}
 	}
 }
 
