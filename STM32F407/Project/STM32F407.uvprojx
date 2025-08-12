@@ -702,6 +702,16 @@
               <FileType>1</FileType>
               <FilePath>..\User\src\breath.c</FilePath>
             </File>
+            <File>
+              <FileName>sg90.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\sg90.c</FilePath>
+            </File>
+            <File>
+              <FileName>rgb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\rgb.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

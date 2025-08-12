@@ -21,6 +21,8 @@
 #include "iwdg.h"
 #include "wwdg.h"
 #include "breath.h"
+#include "sg90.h"
+#include "rgb.h"
 
 
 #endif
