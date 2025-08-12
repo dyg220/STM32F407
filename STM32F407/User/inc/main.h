@@ -19,7 +19,7 @@
 #include "tim11.h"
 #include "sr04.h"
 #include "iwdg.h"
-
+#include "wwdg.h"
 
 
 #endif

@@ -153,6 +153,7 @@
     <ClInclude Include="User\inc\tim7.h" />
     <ClInclude Include="User\inc\usart1.h" />
     <ClInclude Include="User\inc\usart2.h" />
+    <ClInclude Include="User\inc\wwdg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cmsis\stm32f4xx_it.c" />
@@ -215,6 +216,7 @@
     <ClCompile Include="User\src\tim7.c" />
     <ClCompile Include="User\src\usart1.c" />
     <ClCompile Include="User\src\usart2.c" />
+    <ClCompile Include="User\src\wwdg.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Cmsis\startup_stm32f40xx.s" />

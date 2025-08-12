@@ -692,6 +692,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\src\iwdg.c</FilePath>
             </File>
+            <File>
+              <FileName>wwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\wwdg.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

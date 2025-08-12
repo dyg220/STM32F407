@@ -10,26 +10,29 @@
 void IWDG_Init(void)
 {
 	//使能LSI时钟
-	RCC->CSR |= (1 << 0);
+	RCC->CSR |= (1<<0);
 	//等待是否准备就绪
-	while (!(RCC->CSR&(1 << 1)));
-
+	while(!(RCC->CSR&(1<<1)));
+	
 	//取消写保护
 	IWDG->KR = 0x5555;
 	//写分频值
-	IWDG->PR |= (3 << 0);
+	IWDG->PR |= (3<<0);
 	//装载值
-	IWDG->RLR = 4000 - 1;
+	IWDG->RLR = 4000-1;
 	//喂狗（将值更新）
 	IWDG->KR = 0xAAAA;
 	//使能看门狗
 	IWDG->KR = 0xCCCC;
 }
 
-
-
 void IWDG_Feed(void)
 {
 	IWDG->KR = 0xAAAA;
 	printf("喂狗成功\r\n");
 }
+
+
+
+
+
