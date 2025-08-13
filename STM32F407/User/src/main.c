@@ -149,7 +149,7 @@ int main(void)
 		if (flag == 1)
 		{
 			flag = 0;
-			printf("time:%.1fms\r\n", key_time);
+			printf("Time:%.1fms\r\n", key_time);
 		}
 
 	}
