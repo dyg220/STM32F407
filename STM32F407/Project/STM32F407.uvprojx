@@ -712,6 +712,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\src\rgb.c</FilePath>
             </File>
+            <File>
+              <FileName>keytime.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\src\keytime.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
