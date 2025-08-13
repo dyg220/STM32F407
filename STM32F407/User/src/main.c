@@ -1,6 +1,10 @@
 #include "main.h" // Device header
 
-u8 flag = 0;
+//u8 flag = 0;
+
+extern float key_time;
+extern volatile u8 flag;
+
 
 // 简化版HSV转RGB函数（避免浮点运算）
 void HSVtoRGB(uint16_t h, uint8_t *r, uint8_t *g, uint8_t *b)
@@ -142,7 +146,11 @@ int main(void)
 		{
 			RGB_SetColor(242, 63, 114);
 		}*/
-
+		if (flag == 1)
+		{
+			flag = 0;
+			printf("time:%.1fms\r\n", key_time);
+		}
 
 	}
 }

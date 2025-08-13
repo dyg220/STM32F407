@@ -62,3 +62,44 @@ void KeyTime_Init(void)
 }
 
 
+float key_time = 0;
+volatile u8 flag = 0;
+
+void TIM5_IRQHandler(void)
+{
+	static u32 cnt_over = 0;
+	static u16 cnt1 = 0;
+	u32 cnt = 0, cnt2 = 0;
+
+	//判断是否是更新中断触发
+	if (TIM5->SR&(1 << 0))
+	{
+		//清除更新中断标志位
+		TIM5->SR &= ~(1 << 0);
+		cnt_over++;
+	}
+	//判断是否是捕获中断触发
+	if (TIM5->SR&(1 << 1))
+	{
+		//清除捕获中断标志位
+		TIM5->SR &= ~(1 << 1);
+
+		//上升沿触发
+		if (!(TIM5->CCER&(1 << 1)))
+		{
+			cnt1 = TIM5->CCR1;//读取上升沿时计数值
+			cnt_over = 0;//溢出次数清零
+			TIM5->CCER |= (1 << 1);//更改为下降沿触发
+		}
+		//下降沿触发
+		else if (TIM5->CCER&(1 << 1))
+		{
+			cnt2 = TIM5->CCR1;//读取上升沿时计数值
+			TIM5->CCER &= ~(1 << 1);//更改为上升沿触发
+			cnt = cnt_over * 65536 + cnt2 - cnt1;//计数总数 cnt(us)
+			key_time = (float)cnt / 1000.0f;
+			flag = 1;//表示高电平结束
+			cnt_over = 0;
+		}
+	}
+}
